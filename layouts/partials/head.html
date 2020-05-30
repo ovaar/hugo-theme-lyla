@@ -1,0 +1,6 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+{{ $mvp := resources.Get "mvp.css" }}
+{{ $custom := resources.Get "custom.css" }}
+{{ $css := slice $mvp $custom | resources.Concat "css/stylesheet.css" | minify }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}">

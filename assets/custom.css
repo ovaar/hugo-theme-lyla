@@ -1,0 +1,22 @@
+:root {
+    --color-secondary: #0074D9;
+    --color-secondary-accent: #0074D9;
+}
+
+.feather {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+div.social {
+  margin-top: 4em;
+}
+
+div.social > a {
+  margin: 8px;
+}
