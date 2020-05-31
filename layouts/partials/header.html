@@ -1,8 +1,20 @@
 <nav>
-  <a href="">{{ .Site.Title }}</a>
+  {{ if not .IsHome }}
+  <a href="{{ "" | absURL }}">{{ .Site.Title }}</a>
+  {{ else }}
+  <a></a>
+  {{ end }}
   <ul>
-    <li>Home</li>
-    <li><a href="">Docs</a></li>
-    <li><a href="">FAQ</a></li>
+    <li>
+      <a href="{{ "" | absURL }}">Home</a>
+    </li>
+    <li>
+      <a href="">Blog</a>
+    </li>
+	{{ range $i, $item := .Site.Menus.main }}
+  	<li>
+	  <a href="{{ .URL }}">{{ .Name }}</a>
+	</li>
+  	{{ end }}
   </ul>
 </nav>

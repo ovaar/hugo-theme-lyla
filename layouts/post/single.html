@@ -4,7 +4,12 @@
     <body>
       <header>
         {{- partial "header.html" . -}}
+        <h1>{{ .Title }}</h1>
+        <p>
+          <small>published on {{ .Date.Format "Mon, 02 Jan 2006" }}</small>
+        </p>
       </header>
+      <hr>
       <main>
         <article class="content">
           {{ .Content | replaceRE "(<h[2-9] id=\"([^\"]+)\".+)(</h[2-9]+>)" (printf "%s%s%s" "${1}&nbsp;<a class=\"anchor\" href=\"#${2}\">" (partial "feather.html" "corner-down-left") "</a> ${3}") | safeHTML }}

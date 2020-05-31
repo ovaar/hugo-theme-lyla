@@ -4,35 +4,26 @@
     <body>
       <header>
         {{- partial "header.html" . -}}
-        <h1>{{ .Site.Params.Author }}</h1>
+        <h1> {{ .Site.Params.Author }}</h1>
         <p>{{ .Site.Params.Description }}</p>
         {{- partial "social.html" . -}}
       </header>
       <main>
-        <hr>
         <section>
-          <header>
-            <h2>See my latest blog posts</h2>
-          </header>
-          <aside>
-            <a href="">
-              <h3>Setting up Fedora CoreOS</h3>
-            </a>
-            <p>Lorem ipsum bla bla bla</p>
-          </aside>
-          <aside>
-            <a href="">
-              <h3>Setting up Fedora CoreOS</h3>
-            </a>
-            <p>Lorem ipsum bla bla bla</p>
-          </aside>
-          <aside>
-            <a href="">
-              <h3>Setting up Fedora CoreOS</h3>
-            </a>
-            <p>Lorem ipsum bla bla bla</p>
-          </aside>
+          <hr>
+          <h2>Read my latest blog posts</h2>
         </section>
+        {{ range first 3 (where .Site.RegularPages ".Params.type" "=" "post") }}
+        <article>
+          <a href="{{ .Permalink }}">
+            <h3>{{ .Title }}</h3>
+          </a>
+          <p>{{ .Summary }}</p>
+          <p>
+            <small>published on {{ .Date.Format "Mon, 02 Jan 2006" }}</small>
+          </p>
+        </article>
+        {{ end }}
       </main>
       <footer>
         {{- partial "footer.html" . -}}
