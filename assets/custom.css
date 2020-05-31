@@ -62,3 +62,12 @@ a.anchor {
   opacity: 0.5;
   font-size: 0.8em;
 }
+
+nav.list-nav {
+  align-items: center;
+  display: block;
+}
+
+nav.list-nav a {
+  margin: 0.5em;
+}
