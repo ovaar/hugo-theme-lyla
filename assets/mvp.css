@@ -176,9 +176,6 @@ nav ul li ul li a {
 code,
 samp {
     border-radius: var(--border-radius);
-    display: inline-block;
-    margin: 0 0.1rem;
-    padding: 0 0.5rem;
 }
 
 details {
